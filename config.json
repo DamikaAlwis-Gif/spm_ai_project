@@ -1,0 +1,20 @@
+{
+  "vector_db": {
+    "embedding_model":"models/text-embedding-004",
+    "collection_name": "agile_principles",
+    "persist_directory": "./chromadb"
+  },
+  "number_of_docs_to_retrieve": 5,
+  "history_aware_retriever": {
+    "model": "gemini-1.5-flash",
+    "tempreture": 0
+  },
+  "history_db":{
+    "database_name" : "spm_ai_assisstent_db",
+    "collection_name" : "chat_histories",
+    "history_size" : 4
+  },
+  "stored_pdf_files_directory": "./sources/pdf",
+  "processed_files_path": "processed_files.txt"
+}
+

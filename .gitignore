@@ -1,0 +1,6 @@
+env
+.env
+notebooks
+chromadb
+processed_files.txt
+__pycache__
