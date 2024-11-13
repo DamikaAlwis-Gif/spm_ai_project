@@ -16,7 +16,7 @@ def main():
     stored_pdf_files_directory = config["stored_pdf_files_directory"]
     collection_name = config["vector_db"]["collection_name"]
     processed_files_path = config["processed_files_path"]
-    vector_store_pdf = get_vector_store(collection_name)
+    vector_store_pdf = get_vector_store()
 
     for file in get_files_list(directory= stored_pdf_files_directory):
       processed_files = load_processed_files(processed_files_path)
