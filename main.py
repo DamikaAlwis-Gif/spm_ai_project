@@ -64,8 +64,8 @@ def main():
 
         # Information or instructions section
         st.markdown("""
-    Welcome to the **Software Process Guide AI**! This tool leverages a pre-trained generative AI model to assist you through each phase of the software development lifecycle, specifically designed for the **Scrum framework**.
-    """)
+        Welcome to the **Software Process Guide AI**! This tool leverages a pre-trained generative AI model to assist you through each phase of the software development lifecycle, specifically designed for the **Scrum framework**.
+        """)
 
         # initialize chat history
         if "messages" not in st.session_state:
@@ -73,8 +73,7 @@ def main():
         # generate session id for the chat
         if "session_id" not in st.session_state:
             st.session_state.session_id = str(uuid.uuid4())
-            #  st.session_state.session_id = "fsdfdfs"
-
+           
         with st.sidebar:
             session_id_container = st.empty()
             # Display the session ID
@@ -89,6 +88,15 @@ def main():
                 session_id_container.write(
                     f"**Session ID:** {st.session_state['session_id']}")
                 st.success("New chat started!")
+
+            # File upload section
+            uploaded_files = st.file_uploader("**Upload PDF Files**", type="pdf", accept_multiple_files=True)
+            if uploaded_files:
+                # Save uploaded files to the specified directory
+                for uploaded_file in uploaded_files:
+                    with open(f"{stored_pdf_files_directory}/{uploaded_file.name}", "wb") as f:
+                        f.write(uploaded_file.read())
+
         # Display chat messages from history on app rerun
         for message in st.session_state.messages:
             with st.chat_message(message["role"]):
