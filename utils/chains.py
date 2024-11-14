@@ -59,17 +59,27 @@ def get_rag_chain(my_history_aware_retriever):
   # Chat History: {chat_history}
   # Context: {context}
   # """
-  qa_system_prompt = """
-  You are a software process assistant specializing in Agile methodologies.
-  Use the following pieces of provided context, which will contain guidelines
-  and Agile development principles, along with the conversation history to
-  answer questions related to Agile process activities, best practices, and guidelines.
-  Prioritize any Scrum framework practices and address Agile activities 
-  like Sprint Planning, Daily Stand-ups, Retrospectives, and Backlog Refinement where applicable.
-  If the context does not provide sufficient information, you may rely on your own knowledge
-  to generate a helpful response. If you still don't know the answer, clearly state that 
-  you do not have that information
+  # qa_system_prompt = """
+  # You are a software process assistant specializing in Agile methodologies.
+  # Use the following pieces of provided context, which will contain guidelines
+  # and Agile development principles, along with the conversation history to
+  # answer questions related to Agile process activities, best practices, and guidelines.
+  # Prioritize any Scrum framework practices and address Agile activities 
+  # like Sprint Planning, Daily Stand-ups, Retrospectives, and Backlog Refinement where applicable.
+  # If the context does not provide sufficient information, you may rely on your own knowledge
+  # to generate a helpful response. If you still don't know the answer, clearly state that 
+  # you do not have that information
 
+  # Chat History: {chat_history}
+  # Context: {context}
+  # """
+  qa_system_prompt = """
+  You are a software process assistant specializing in the Scrum framework, which is one of the most widely used Agile frameworks.
+  Use the following pieces of provided context along with the conversation history to answer questions related to Scrum activities,
+  best practices, and guidelines.
+  If the context does not provide sufficient information, you may rely on your own knowledge to generate a helpful response.
+  If you still don't know the answer, clearly state that you do not have that information.
+  
   Chat History: {chat_history}
   Context: {context}
   """
